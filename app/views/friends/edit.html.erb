@@ -1,0 +1,11 @@
+<div class="card bg-dark text-white" style="width: 30rem;">
+  <div class="card-body">
+
+<%= render 'form', friend: @friend %>
+
+<%= link_to 'Show', @friend, class:"btn btn-outline-info"  %>
+<%= link_to 'Delete', @friend, class:"btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Back', friend_path, class:"btn btn-outline-secondary"  %>
+
+  </div>
+</div>

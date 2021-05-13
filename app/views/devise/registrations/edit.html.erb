@@ -1,0 +1,46 @@
+<div class="card bg-dark text-white" style="width: 32rem;">
+  <div class="card-body">
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field mb-3">
+    <% f.label :email %>
+    <%= f.email_field :email, class:"form-control", placeholder:"Email", autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field mb-3">
+    <% f.label :password %>
+    <%= f.password_field :password, class:"form-control", placeholder:"Password", autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <em><% @minimum_password_length %> </em>
+    <% end %>
+  </div>
+
+  <div class="field mb-3">
+    <% f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation,class:"form-control", placeholder:"Confirm Password (6 characters minimum)", autocomplete: "new-password" %>
+  </div>
+
+  <div class="field mb-3">
+    <% f.label :current_password %>
+    <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control", placeholder:"Current Password" %>
+  </div>
+<p>
+  <div class="actions">
+    <%= f.submit "Update", class:'btn btn-outline-warning' %>
+  </div>
+<% end %>
+</p>
+<p>
+<%= link_to "Back", :back, class:'btn btn-outline-secondary' %>
+</p>
+ <div class="card-footer text-muted px-0">
+<%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, class:'btn btn-outline-danger', method: :delete %>
+  </div>
+  </div>
+</div>
